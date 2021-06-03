@@ -4,7 +4,7 @@ trigger:
 
 resources:
   pipelines:
-  - pipeline: Azure-DevOps-Pipelines  # Name of the pipeline resource
+  - pipeline: yemaedahrav.Azure-DevOps-Pipelines  # Name of the pipeline resource
     source: yemaedahrav.Azure-DevOps-Pipelines # Name of the triggering pipeline
     trigger: 
       branches:
@@ -23,11 +23,11 @@ jobs:
     runOnce:
       deploy:
         steps:          
-        - download: myappbuild
+        - download: yemaedahrav.Azure-DevOps-Pipelines
           artifact: drop  
         - task: ExtractFiles@1
           inputs:
-            archiveFilePatterns: '$(PIPELINE.WORKSPACE)/myappbuild/drop/$(resources.pipeline.myappbuild.runID).zip'
+            archiveFilePatterns: '$(PIPELINE.WORKSPACE)/yemaedahrav.Azure-DevOps-Pipelines/drop/$(resources.pipeline.yemaedahrav.Azure-DevOps-Pipelines.runID).zip'
             destinationFolder: '$(agent.builddirectory)'
             cleanDestinationFolder: false
         - script: |  
