@@ -36,3 +36,8 @@ jobs:
       targetType: 'inline'
       script: |
         echo 'Hello world from Amey !!'
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'current'
+      downloadType: 'single'
+      downloadPath: '$(System.ArtifactsDirectory)'
