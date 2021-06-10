@@ -31,3 +31,8 @@ jobs:
       replaceExistingArchive: true
   - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     artifact: drop
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        echo 'Hello world from Amey !!'
